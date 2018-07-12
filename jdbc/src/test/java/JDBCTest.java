@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 
 public class JDBCTest {
+    //查询测试
     @Test
     public void TestJDBC() throws ClassNotFoundException, SQLException {
         Connection conn = JDBC.getConnection("xiuzhen","root","root");
@@ -23,6 +24,7 @@ public class JDBCTest {
         st.close();
         conn.close();
     }
+    //插入测试
     @Test
     public void InsertTest() throws SQLException {
         Connection conn = JDBC.getConnection("xiuzhen","root","root");
@@ -42,6 +44,7 @@ public class JDBCTest {
             conn.close();
         }
     }
+    //更新测试
     @Test
     public void Update() throws SQLException {
         Connection conn = JDBC.getConnection("xiuzhen","root","root");
@@ -61,6 +64,7 @@ public class JDBCTest {
             conn.close();
         }
     }
+    //删除测试
     @Test
     public void Delete() throws SQLException {
         Connection conn = JDBC.getConnection("xiuzhen","root","8891960");
