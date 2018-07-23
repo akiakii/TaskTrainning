@@ -1,11 +1,11 @@
 package dao;
 
-import Entity.Signup;
+import com.iceneet.Entity.signup;
 
 public interface signupDAO {
     //
-    Signup FindSignupByName(String name);
-    int InsertSignup(Signup signup);
+    signup FindSignupByName(String name);
+    int InsertSignup(signup signup);
     int DeleteByName(String name);
     int UpdateByName(String name);
 }

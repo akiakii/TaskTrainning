@@ -10,16 +10,4 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>
       <typeAlias alias="Signup" type="com.iceneet.Entity.signup"/>
     </typeAliases>
-
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/xiuzhen?characterEncoding=UTF-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="8891960"/>
-            </dataSource>
-        </environment>
-    </environments>
 </configuration>

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.Reader;
+import java.util.List;
 
 public class SignupServiceTest {
     private static SqlSessionFactory sqlSessionFactory;
@@ -26,20 +27,42 @@ public class SignupServiceTest {
     }
 
     @Test
-    public void TestUpdate(){
+    public void TestSelect(){
         SqlSession session = sqlSessionFactory.openSession();
-
-    }
-    public static void main(String[] args) {
-        SqlSession session = sqlSessionFactory.openSession();
-        try {
-            SignupDao signupDao = session.getMapper(SignupDao.class);
-            signup SN = new signup();
-            SN.setName("王五");
-            SN.setQq(651368888);
-            signupDao.selectSignup("万鹏");
-        }finally {
-            session.close();
+        SignupDao signupDao = session.getMapper(SignupDao.class);
+        List<signup> list= signupDao.selectSignup();
+        for (signup sn :list){
+            System.out.println(sn.getName()+"\t"+sn.getQq()+"\t");
         }
+    }
+    @Test
+    public void Testupdate(){
+        SqlSession session = sqlSessionFactory.openSession();
+        SignupDao signupDao = session.getMapper(SignupDao.class);
+        signup SN = new signup();
+        SN.setName("王五1");
+        SN.setQq(651368888);
+        signupDao.updateSignup("赵茜");
+        session.commit();
+    }
+    @Test
+    public void Testinsert(){
+        SqlSession session = sqlSessionFactory.openSession();
+        SignupDao signupDao = session.getMapper(SignupDao.class);
+        signup SN = new signup();
+        SN.setName("66");
+        SN.setQq(651368888);
+        signupDao.insertSignup(SN);
+        session.commit();
+    }
+    @Test
+    public void TestDelete(){
+        SqlSession session = sqlSessionFactory.openSession();
+        SignupDao signupDao = session.getMapper(SignupDao.class);
+        signup SN = new signup();
+        SN.setName("66");
+        SN.setQq(651368888);
+        signupDao.deleteSignup(75);
+        session.commit();
     }
 }

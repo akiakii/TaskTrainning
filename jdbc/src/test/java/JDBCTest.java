@@ -10,14 +10,14 @@ public class JDBCTest {
     //查询测试
     @Test
     public void TestJDBC() throws ClassNotFoundException, SQLException {
-        Connection conn = JDBC.getConnection("xiuzhen","root","root");
+        Connection conn = JDBC.getConnection("xiuzhen","root","8891960");
         //3.通过数据库的连接操作数据库，实现增删改查（使用Statement类）
         Statement st=conn.createStatement();
         //sql语句
         ResultSet rs = st.executeQuery("SELECT * FROM signup");
         while(rs.next()){
-            System.out.println(rs.getString("name")+" "
-                    +rs.getString("qq"));
+            System.out.println("姓名："+rs.getString("name")+" "+
+                    "QQ\t"+rs.getString("qq"));
         }
         //关闭资源
         rs.close();
@@ -27,10 +27,11 @@ public class JDBCTest {
     //插入测试
     @Test
     public void InsertTest() throws SQLException {
-        Connection conn = JDBC.getConnection("xiuzhen","root","root");
+        Connection conn = JDBC.getConnection("xiuzhen","root","8891960");
         Statement st=conn.createStatement();
         String sql="insert into signup(name,qq) values('张三','123456')";
         try {
+            conn.close();
             //执行 SQL 语句并返回结果
             int result = st.executeUpdate(sql);
             if (result != 0) {
@@ -38,7 +39,7 @@ public class JDBCTest {
             }
 
         } catch (SQLException e) {
-            System.out.println("操作失败");
+            System.out.println(e);
         } finally {
             st.close();
             conn.close();

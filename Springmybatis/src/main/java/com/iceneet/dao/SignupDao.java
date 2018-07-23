@@ -1,11 +1,9 @@
-package com.iceneet.dao.mapper;
+package com.iceneet.dao;
 
 import com.iceneet.Entity.signup;
 
-import java.util.List;
-
 public interface SignupDao {
-    List<signup> selectSignup();
+    signup selectSignup(Long id);
     void insertSignup(signup signup);
     boolean updateSignup(String name);
     boolean deleteSignup(long id);

@@ -1,6 +1,6 @@
-package Entity;
+package com.iceneet.Entity;
 
-public class Signup {
+public class signup {
     private long id;
     private String name;
     private int qq;
@@ -121,7 +121,7 @@ public class Signup {
 
     @Override
     public String toString() {
-        return "Signup{" +
+        return "signup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", qq=" + qq +

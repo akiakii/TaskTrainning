@@ -4,7 +4,7 @@
 ////
 ////public class SignupService{
 ////    @Resource
-////    private SignupMapper signupMapper;
+////    private SignupMapper.xml signupMapper;
 ////
 ////    public void save(signup signup){
 ////        signupMapper.save(signup);
